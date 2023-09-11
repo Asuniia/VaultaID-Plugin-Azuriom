@@ -1,0 +1,15 @@
+{
+    "id": "vaultaid",
+    "name": "VaultaID OAuth2",
+    "description": "A VaultaID OAuth2 provider for Azuriom.",
+    "version": "1.0.0",
+    "url": "https://aktech.fr",
+    "authors": [
+        "asuniialevrai (Discord) | Asuniia"
+    ],
+    "azuriom_api": "1.1.0",
+    "providers": [
+        "\\Azuriom\\Plugin\\Vaultaid\\Providers\\VaultaidServiceProvider",
+        "\\Azuriom\\Plugin\\Vaultaid\\Providers\\RouteServiceProvider"
+    ]
+}
