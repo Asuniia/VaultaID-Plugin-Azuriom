@@ -2,7 +2,7 @@
     "id": "vaultaid",
     "name": "VaultaID OAuth2",
     "description": "A VaultaID OAuth2 provider for Azuriom.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "url": "https://aktech.fr",
     "authors": [
         "asuniialevrai (Discord) | Asuniia"
