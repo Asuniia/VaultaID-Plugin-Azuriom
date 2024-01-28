@@ -15,7 +15,7 @@ class VaultaidAuthController extends Controller
 
     public function redirect()
     {
-        
+
         if (Auth::check()) {
             return redirect('/');
         }
@@ -37,7 +37,7 @@ class VaultaidAuthController extends Controller
                             "&scope=" . implode(" ", json_decode(setting('vaultaid.scopes', '[]')));
 
         return redirect($url);
-    
+
     }
 
     public function callback(Request $request) {
@@ -52,7 +52,7 @@ class VaultaidAuthController extends Controller
         }
 
         $isController = $request->session()->get('socialite_callback') === 'from_controller';
-     
+
         if (!$isController) {
             return redirect('/');
         }
@@ -81,6 +81,14 @@ class VaultaidAuthController extends Controller
 
 
         $response = json_decode($response->body());
+
+        if(!$response) {
+            return redirect()->route('login')->with('error', trans('vaultaid::web.flash.auth.error.server_err'));
+        }
+
+        if(!$response->access_token) {
+            return redirect()->route('login')->with('error', trans('vaultaid::web.flash.auth.error.server_err'));
+        }
 
         if (isset($response->errors)) {
             return redirect()->route('login')->with('error', trans('vaultaid::web.flash.auth.error.server_err'));

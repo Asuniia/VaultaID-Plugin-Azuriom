@@ -11,7 +11,7 @@ class AdminController extends Controller
 
     public function show()
     {
-         
+
         return view('vaultaid::admin.index', [
             'client_id' => setting('vaultaid.client_id', ''),
             'client_secret' => setting('vaultaid.client_secret', ''),
